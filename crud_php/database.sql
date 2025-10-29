@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `crud_db`;
+CREATE DATABASE IF NOT EXISTS `gameSellingPlat_db`;
 
-USE `crud_db`;
+USE `gameSellingPlat`;
 
 CREATE TABLE IF NOT EXISTS `categorias` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
