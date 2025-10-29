@@ -2,7 +2,7 @@
 
 class Database {
     private $host = "localhost";
-    private $db_name = "crud_db";
+    private $db_name = "gameSellingPlat_db";
     private $username = "root";
     private $password = ""; // No XAMPP, a senha padrão do root é vazia
     public $conn;
