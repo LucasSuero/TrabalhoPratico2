@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS `jogos` (
     `nome` VARCHAR(255) NOT NULL,
     `descricao` TEXT,
     `preco` DECIMAL(10, 2) NOT NULL,
-    `categoria_id` INT(11) NOT NULL,
+    `categoria_id` INT(11) NOT NULL, 
+    `imagem` VARCHAR(255),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`categoria_id`) REFERENCES `categorias`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

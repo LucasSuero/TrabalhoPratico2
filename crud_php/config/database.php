@@ -42,6 +42,7 @@ class Database {
                     preco DECIMAL(10,2) NOT NULL,
                     categoria_id INT(11) NOT NULL,
                     PRIMARY KEY(id),
+                    imagem VARCHAR(255),
                     FOREIGN KEY (categoria_id) REFERENCES categorias(id) ON DELETE CASCADE
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
             ");

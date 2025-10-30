@@ -22,10 +22,31 @@ class ProdutoController {
     }
 
     public function create($nome, $descricao, $preco, $categoria_id) {
+        $caminhoBanco = null; // Caminho a ser salvo no banco
+
+        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+            $pasta = __DIR__ . '/../uploads/';
+            if (!is_dir($pasta)) {
+                mkdir($pasta, 0777, true);
+            }
+
+            // Gera um nome único para evitar conflitos
+            $nomeArquivo = uniqid() . '-' . basename($_FILES['imagem']['name']);
+            $caminhoDestino = $pasta . $nomeArquivo;
+
+            // Move o arquivo enviado
+            if (move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoDestino)) {
+                $caminhoBanco = 'uploads/' . $nomeArquivo;
+            } else {
+                echo "Erro ao mover o arquivo de imagem.";
+                return false;
+            }
+        }
         $this->produto->nome = $nome;
         $this->produto->descricao = $descricao;
         $this->produto->preco = $preco;
         $this->produto->categoria_id = $categoria_id;
+        $this->produto->imagem = $caminhoBanco;
         if($this->produto->create()) {
             return true;
         }

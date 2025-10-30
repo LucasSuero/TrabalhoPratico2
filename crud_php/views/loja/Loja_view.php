@@ -16,6 +16,22 @@ o flores deve saber. E quando forem decorar essa pagína, eu acho uma ideia boa 
 css e aí vocês adicionam o link do arquivo header.php, igual tá ali os outros css, vai funcionar
 normal
 -->
+    <?php 
+include_once __DIR__ . '/../../controllers/ProdutoController.php';
+
+$controller = new ProdutoController();
+$produtosArray = $controller->index(); // retorna ['stmt' => ..., 'num' => ...]
+$produtos = $produtosArray['stmt']; // aqui pegamos o PDOStatement
+?>
+
+    <?php while($produto = $produtos->fetch(PDO::FETCH_ASSOC)) : ?>
+    <div class="produto">
+        <?php if(!empty($produto['imagem'])): ?>
+            <img src="/crud_php/public/<?php echo $produto['imagem']; ?>" alt="<?php echo htmlspecialchars($produto['nome']);
+             ?>" width="200px" height="350px">
+        <?php endif; ?>
+    </div>
+<?php endwhile; ?>
 
 
  <?php  include __DIR__ . '/../../views/includes/footer.php';?>

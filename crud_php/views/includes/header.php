@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/crud_php/public/css/adm.css">
     <link rel="stylesheet" href="/crud_php/public/css/tabela.css">
     <link rel="stylesheet" href="/crud_php/public/css/formulario.css">
+    <link rel="stylesheet" href="/crud_php/public/css/loja.css">
     <link rel="icon" type="image/x-icon" href="css/images/Logo/Logo_Loja.png">
 </head>
 <body>

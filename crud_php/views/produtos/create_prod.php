@@ -23,7 +23,7 @@ include __DIR__ . '/../../views/includes/header.php';
 
 <h2>Adicionar Jogo</h2>
 
-<form action="/crud_php/public/index.php?page=produtos&action=create" method="POST">
+<form action="/crud_php/public/index.php?page=produtos&action=create" method="POST" enctype="multipart/form-data">
     <label for="nome">Nome do jogo:</label>
     <input type="text" id="nome" name="nome" required>
 
@@ -41,6 +41,9 @@ include __DIR__ . '/../../views/includes/header.php';
         }
         ?>
     </select>
+
+    <label for="imagem">Imagem de capa</label>
+    <input type="file" id="imagem" name="imagem" accept="image/*" required>
 
     <button type="submit" class="button">Salvar</button>
     <a href="/crud_php/public/index.php?page=produtos" class="button">Cancelar</a>

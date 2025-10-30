@@ -9,6 +9,7 @@ class Produto {
     public $preco;
     public $categoria_id;
     public $categoria_nome;
+    public $imagem;
 
     public function __construct($db){
         $this->conn = $db;
@@ -17,7 +18,7 @@ class Produto {
     // Usado para ler produtos
     function read(){
         $query = "SELECT
-                    c.nome as categoria_nome, p.id, p.nome, p.descricao, p.preco, p.categoria_id
+                    c.nome as categoria_nome, p.id, p.nome, p.descricao, p.preco, p.categoria_id, p.imagem
                 FROM
                     " . $this->table_name . " p
                     LEFT JOIN
@@ -27,24 +28,26 @@ class Produto {
                     p.nome DESC";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->execute();
+            $stmt->execute();
 
         return $stmt;
     }
 
     // Usado para criar produto
     function create(){
-        $query = "INSERT INTO " . $this->table_name . " SET nome=:nome, preco=:preco, descricao=:descricao, categoria_id=:categoria_id";
+        $query = "INSERT INTO " . $this->table_name . " SET nome=:nome, preco=:preco, descricao=:descricao, categoria_id=:categoria_id, imagem=:imagem";
         $stmt = $this->conn->prepare($query);
 
         $this->nome=htmlspecialchars(strip_tags($this->nome));
         $this->preco=htmlspecialchars(strip_tags($this->preco));
         $this->descricao=htmlspecialchars(strip_tags($this->descricao));
         $this->categoria_id=htmlspecialchars(strip_tags($this->categoria_id));
+        $this->imagem = htmlspecialchars(strip_tags($this->imagem));
 
         $stmt->bindParam(":nome", $this->nome);
         $stmt->bindParam(":preco", $this->preco);
         $stmt->bindParam(":descricao", $this->descricao);
+        $stmt->bindParam(':imagem', $this->imagem);
         $stmt->bindParam(":categoria_id", $this->categoria_id);
 
         if($stmt->execute()){
@@ -56,7 +59,7 @@ class Produto {
     // Usado para ler um único produto
     function readOne(){
         $query = "SELECT
-                    c.nome as categoria_nome, p.id, p.nome, p.descricao, p.preco, p.categoria_id
+                    c.nome as categoria_nome, p.id, p.nome, p.descricao, p.preco, p.categoria_id, p.imagem
                 FROM
                     " . $this->table_name . " p
                     LEFT JOIN
@@ -78,6 +81,7 @@ class Produto {
         $this->preco = $row["preco"];
         $this->categoria_id = $row["categoria_id"];
         $this->categoria_nome = $row["categoria_nome"];
+        $this->imagem = $row["imagem"];
     }
 
     // Usado para atualizar o produto
@@ -88,7 +92,8 @@ class Produto {
                     nome = :nome,
                     preco = :preco,
                     descricao = :descricao,
-                    categoria_id = :categoria_id
+                    categoria_id = :categoria_id,
+                    imagem=:imagem
                 WHERE
                     id = :id";
 
@@ -98,12 +103,14 @@ class Produto {
         $this->preco=htmlspecialchars(strip_tags($this->preco));
         $this->descricao=htmlspecialchars(strip_tags($this->descricao));
         $this->categoria_id=htmlspecialchars(strip_tags($this->categoria_id));
+        $this->imagem = htmlspecialchars(strip_tags($this->imagem));
         $this->id=htmlspecialchars(strip_tags($this->id));
 
         $stmt->bindParam(":nome", $this->nome);
         $stmt->bindParam(":preco", $this->preco);
         $stmt->bindParam(":descricao", $this->descricao);
         $stmt->bindParam(":categoria_id", $this->categoria_id);
+        $stmt->bindParam(":imagem", $this->imagem);
         $stmt->bindParam(":id", $this->id);
 
         if($stmt->execute()){
