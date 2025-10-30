@@ -21,10 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 include __DIR__ . '/../../views/includes/header.php';
 ?>
 
-<h2>Criar Produto</h2>
+<h2>Adicionar Jogo</h2>
 
 <form action="/crud_php/public/index.php?page=produtos&action=create" method="POST">
-    <label for="nome">Nome do Produto:</label>
+    <label for="nome">Nome do jogo:</label>
     <input type="text" id="nome" name="nome" required>
 
     <label for="descricao">Descrição:</label>

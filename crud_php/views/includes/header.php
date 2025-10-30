@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Primeiro CRUD PHP</title>
+    <title>Boy Games</title>
+<!-- para fins de organização, eu criei diversos arquivos css para facilitar o encontro de 
+ informações, peço atenciosamente que a equipe mantenha as informações separadas.
+ -->
     <link rel="stylesheet" href="/crud_php/public/css/style.css">
+    <link rel="stylesheet" href="/crud_php/public/css/adm.css">
+    <link rel="stylesheet" href="/crud_php/public/css/tabela.css">
+    <link rel="stylesheet" href="/crud_php/public/css/formulario.css">
+    <link rel="icon" type="image/x-icon" href="css/images/Logo/Logo_Loja.png">
 </head>
 <body>
-    <div class="container">
-        <h1>LINGUAGEM E TÉCNICAS DE PROGRAMAÇÃO -  PHP com MySQL</h1>
+    <div class="container">  
+     <div class="headerBarraAlta">
+      <img src="css/images/Logo/Logo_Loja.png" alt="Logo da Loja" width= 70px height= 70px>;
+
+      <h1>Boy Games</h1>'
+        </div>
         <nav>
-            <a href="/crud_php/public/index.php?page=produtos">Produtos</a>
-            <a href="/crud_php/public/index.php?page=categorias">Categorias</a>
+            <a href="index.php?page=loja">LOJA</a>
+
+            <a class='direita' href="index.php?page=administracao">ADMINISTRAÇÃO</a>
+           
+        
         </nav>
         <hr>

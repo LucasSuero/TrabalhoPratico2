@@ -1,7 +1,7 @@
 <?php
 class Produto {
     private $conn;
-    private $table_name = "produtos";
+    private $table_name = "jogos";
 
     public $id;
     public $nome;

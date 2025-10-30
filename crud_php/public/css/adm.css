@@ -1,0 +1,23 @@
+/*
+Código de cores padrão
+Azul: #0096fd
+Vermelho Radical: #fa3460
+*/
+
+.mainDiv {
+    margin-top: 0;
+    display: block;
+    text-align:center;
+    
+    
+}
+.mainDiv a{
+    text-decoration: none;
+    color: #0096fd;
+    background-color: #161516 ;
+    padding: 20px;
+
+}
+.mainDiv a:hover {
+    color: #fa3460;
+}
