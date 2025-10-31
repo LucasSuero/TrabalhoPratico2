@@ -27,8 +27,8 @@ $produtos = $produtosArray['stmt']; // aqui pegamos o PDOStatement
     <?php while($produto = $produtos->fetch(PDO::FETCH_ASSOC)) : ?>
     <div class="produto">
         <?php if(!empty($produto['imagem'])): ?>
-            <img src="/crud_php/public/<?php echo $produto['imagem']; ?>" alt="<?php echo htmlspecialchars($produto['nome']);
-             ?>" width="200px" height="350px">
+            <img src="/crud_php/<?php echo $produto['imagem']; ?>" alt="<?php echo htmlspecialchars($produto['nome']);
+             ?>" width="200px" >
         <?php endif; ?>
     </div>
 <?php endwhile; ?>

@@ -9,8 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['descricao'];
     $preco = $_POST['preco'];
     $categoria_id = $_POST['categoria_id'];
+    $imagem = $_POST['imagem'];
 
-    if ($controller->create($nome, $descricao, $preco, $categoria_id)) {
+    if ($controller->create($nome, $descricao, $preco, $categoria_id, $imagem)) {
         header('Location: /crud_php/public/index.php?page=produtos');
         exit();
     } else {
