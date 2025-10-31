@@ -23,15 +23,15 @@ $controller = new ProdutoController();
 $produtosArray = $controller->index(); // retorna ['stmt' => ..., 'num' => ...]
 $produtos = $produtosArray['stmt']; // aqui pegamos o PDOStatement
 ?>
-
+<div class="produto">
     <?php while($produto = $produtos->fetch(PDO::FETCH_ASSOC)) : ?>
-    <div class="produto">
+    
         <?php if(!empty($produto['imagem'])): ?>
             <img src="/crud_php/<?php echo $produto['imagem']; ?>" alt="<?php echo htmlspecialchars($produto['nome']);
              ?>" width="200px" >
         <?php endif; ?>
-    </div>
+    
 <?php endwhile; ?>
-
+</div>
 
  <?php  include __DIR__ . '/../../views/includes/footer.php';?>
