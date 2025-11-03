@@ -28,7 +28,7 @@ $produtos = $produtosArray['stmt']; // aqui pegamos o PDOStatement
     
         <?php if(!empty($produto['imagem'])): ?>
             <img src="/crud_php/<?php echo $produto['imagem']; ?>" alt="<?php echo htmlspecialchars($produto['nome']);
-             ?>" width="200px" >
+             ?>" width="220px" >
         <?php endif; ?>
     
 <?php endwhile; ?>
