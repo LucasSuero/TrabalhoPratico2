@@ -8,14 +8,6 @@ dessas categorias levaria pra uma tabela com os jogos que tem essa categoria.-->
 
 </nav>
 
-<!--Pro restante da página a ideia é colocar um display de jogos igual a bibilioteca 
-da epic games, tipo pra parecer uma loja mesmo. Pra fazer isso a gente ia precisar mexer 
-na aba de produtos, que tem que ter uma entrada para imagem no formulário e no banco de dados
-também, por que ele tem que ter uma forma de armazenar imagens, se o chatgpt não souber ajudar
-o flores deve saber. E quando forem decorar essa pagína, eu acho uma ideia boa criar outro arquivo
-css e aí vocês adicionam o link do arquivo header.php, igual tá ali os outros css, vai funcionar
-normal
--->
     <?php 
 include_once __DIR__ . '/../../controllers/ProdutoController.php';
 
@@ -27,10 +19,17 @@ $produtos = $produtosArray['stmt']; // aqui pegamos o PDOStatement
     <?php while($produto = $produtos->fetch(PDO::FETCH_ASSOC)) : ?>
     
         <?php if(!empty($produto['imagem'])): ?>
+            <div class="produto-item">
             <img src="/crud_php/<?php echo $produto['imagem']; ?>" alt="<?php echo htmlspecialchars($produto['nome']);
-             ?>" width="220px" >
+             ?>" >
         <?php endif; ?>
-    
+    <div class="overlay">
+          <h3 class="nome"><?php echo htmlspecialchars($produto['nome']); ?></h3>
+          <p class="preco">R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
+          <p class="cat">Categoria: <?php echo htmlspecialchars($produto['categoria_nome']); ?></p>
+          <p class="desc"><?php echo htmlspecialchars($produto['descricao']); ?></p>
+        </div>
+    </div>
 <?php endwhile; ?>
 </div>
 

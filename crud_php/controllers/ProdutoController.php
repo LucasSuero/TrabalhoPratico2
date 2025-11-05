@@ -16,7 +16,21 @@ class ProdutoController {
     }
 
     public function index() {
-        $stmt = $this->produto->read();
+         $sql = "
+            SELECT j.id,
+                   j.nome,
+                   j.descricao,
+                   j.preco,
+                   j.imagem,
+                   j.categoria_id,
+                   c.nome AS categoria_nome
+            FROM jogos j
+            LEFT JOIN categorias c ON j.categoria_id = c.id
+            ORDER BY j.id DESC
+        ";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
         $num = $stmt->rowCount();
         return ['stmt' => $stmt, 'num' => $num];
     }

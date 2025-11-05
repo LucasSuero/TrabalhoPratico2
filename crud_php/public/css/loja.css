@@ -1,5 +1,57 @@
 .produto {
-    display: flex;
-    margin-left: 70px;
-    gap: 30px;
+  display: flex;
+  margin-left: 70px;
+  gap: 30px;
+  overflow: visible;
+  flex-wrap: wrap;
+}
+
+/* container de cada item */
+.produto-item {
+  position: relative; /* referencia pro overlay */
+  display: inline-block;
+}
+
+.produto-item img {
+  height: 350px;
+  width: 220px;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-origin: center center;
+  will-change: transform, box-shadow;
+  cursor: pointer;
+}
+
+.produto-item img:hover {
+  scale: 1.08;
+  box-shadow: 0 8px 20px #0096fd;
+}
+
+/* overlay aparece sobre a imagem */
+.overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 60%);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .25s ease, transform .25s ease;
+  border-radius: 0 0 10px 10px;
+  pointer-events: none;
+}
+
+.overlay .nome { margin: 0 0 6px 0; font-size: 16px; }
+.overlay .preco { margin: 0 0 6px 0; font-weight: 600; }
+.overlay .cat { margin: 0 0 6px 0; font-size: 14px; }
+.overlay .desc { margin: 0; font-size: 13px; opacity: 0.9; }
+
+/* mostra overlay quando passa o mouse */
+.produto-item:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
