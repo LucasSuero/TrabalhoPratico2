@@ -1,7 +1,8 @@
 .produto {
   display: flex;
-  margin-left: 70px;
-  gap: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  gap: 20px;
   overflow: visible;
   flex-wrap: wrap;
 }

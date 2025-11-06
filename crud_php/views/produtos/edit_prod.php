@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['descricao'];
     $preco = $_POST['preco'];
     $categoria_id = $_POST['categoria_id'];
+    $imagem = $_POST['imagem'];
 
     if ($controller->update($id, $nome, $descricao, $preco, $categoria_id)) {
         header('Location: /crud_php/public/index.php?page=produtos');
@@ -29,7 +30,7 @@ include __DIR__ .
 
 <h2>Editar Produto</h2>
 
-<form action="/crud_php/public/index.php?page=produtos&action=edit&id=<?php echo $id; ?>" method="POST">
+<form action="/crud_php/public/index.php?page=produtos&action=edit&id=<?php echo $id; ?>" method="POST" enctype="multipart/form-data">
     <label for="nome">Nome do Produto:</label>
     <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($produto->nome, ENT_QUOTES); ?>" required>
 
@@ -48,6 +49,9 @@ include __DIR__ .
         }
         ?>
     </select>
+    
+    <label for="imagem">Imagem de capa</label>
+    <input type="file" id="imagem" name="imagem" accept="image/*" required>
 
     <button type="submit" class="button">Salvar</button>
     <a href="/crud_php/public/index.php?page=produtos" class="button">Cancelar</a>
