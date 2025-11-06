@@ -1,10 +1,7 @@
 <?php include __DIR__ . '/../../views/includes/header.php';?>
 
 <nav>
-<!--Oh, dentro dessa nav, a minha ideia era pegar tipo, umas 8 categorias de dentro do 
-banco de dados, tipo, de forma aleatória e colocar ali, por que assim é possível adicionar
-infinitas categorias pro banco de dados e mesmo assim não vai quebrar o programa, cada uma 
-dessas categorias levaria pra uma tabela com os jogos que tem essa categoria.-->
+
 
 </nav>
 
