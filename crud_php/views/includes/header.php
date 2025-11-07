@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="/crud_php/public/css/tabela.css">
     <link rel="stylesheet" href="/crud_php/public/css/formulario.css">
     <link rel="stylesheet" href="/crud_php/public/css/loja.css">
-    <link rel="icon" type="image/x-icon" href="css/images/Logo/Logo_Loja.png">
+    <link rel="icon" type="image/x-icon" href="css/Images/Logo/Logo_Loja.png">
 </head>
 <body>
     <div class="container">  
      <div class="headerBarraAlta">
-      <img src="css/images/Logo/Logo_Loja.png" alt="Logo da Loja" width= 70px height= 70px>;
+      <img src="css/Images/Logo/Logo_Loja.png" alt="Logo da Loja" width= 70px height= 70px>;
 
       <h1>Boy Games</h1>'
         </div>
