@@ -16,7 +16,7 @@ class ProdutoController {
     }
 
     public function index() {
-         $sql = "
+        $sql = "
             SELECT j.id,
                    j.nome,
                    j.descricao,
@@ -28,43 +28,73 @@ class ProdutoController {
             LEFT JOIN categorias c ON j.categoria_id = c.id
             ORDER BY j.id DESC
         ";
-
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $num = $stmt->rowCount();
-        return ['stmt' => $stmt, 'num' => $num];
+        return ['stmt' => $stmt, 'num' => $stmt->rowCount()];
     }
 
+    // --- CREATE PRODUCT ---
     public function create($nome, $descricao, $preco, $categoria_id) {
-        $caminhoBanco = null; // Caminho a ser salvo no banco
+        $caminhoBanco = null;
 
+        // Handle file upload
         if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-            $pasta = __DIR__ . '/../uploads/';
-            if (!is_dir($pasta)) {
-                mkdir($pasta, 0777, true);
-            }
+            $pasta = __DIR__ . '/../public/uploads/'; // Ensure this folder exists
+            if (!is_dir($pasta)) mkdir($pasta, 0777, true);
 
-            // Gera um nome único para evitar conflitos
             $nomeArquivo = uniqid() . '-' . basename($_FILES['imagem']['name']);
             $caminhoDestino = $pasta . $nomeArquivo;
 
-            // Move o arquivo enviado
-            if (move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoDestino)) {
-                $caminhoBanco = 'uploads/' . $nomeArquivo;
-            } else {
-                echo "Erro ao mover o arquivo de imagem.";
+            if (!move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoDestino)) {
+                echo "<p class='error'>Erro ao mover o arquivo de imagem. Verifique permissões da pasta uploads/</p>";
                 return false;
             }
+
+            $caminhoBanco = 'uploads/' . $nomeArquivo; // relative path for DB
+        } else {
+            echo "<p class='error'>Nenhuma imagem enviada ou erro no upload.</p>";
+            return false;
         }
+
+        // Save to database
         $this->produto->nome = $nome;
         $this->produto->descricao = $descricao;
         $this->produto->preco = $preco;
         $this->produto->categoria_id = $categoria_id;
         $this->produto->imagem = $caminhoBanco;
-        if($this->produto->create()) {
-            return true;
+
+        return $this->produto->create();
+    }
+
+    // --- UPDATE PRODUCT ---
+    public function update($id, $nome, $descricao, $preco, $categoria_id) {
+        $caminhoBanco = null;
+
+        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+            $pasta = __DIR__ . '/../public/uploads/';
+            if (!is_dir($pasta)) mkdir($pasta, 0777, true);
+
+            $nomeArquivo = uniqid() . '-' . basename($_FILES['imagem']['name']);
+            $caminhoDestino = $pasta . $nomeArquivo;
+
+            if (!move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoDestino)) {
+                echo "<p class='error'>Erro ao mover o arquivo de imagem.</p>";
+                return false;
+            }
+
+            $caminhoBanco = 'uploads/' . $nomeArquivo;
         }
-        return false;
+
+        $this->produto->id = $id;
+        $this->produto->nome = $nome;
+        $this->produto->descricao = $descricao;
+        $this->produto->preco = $preco;
+        $this->produto->categoria_id = $categoria_id;
+
+        // Update image only if a new one was uploaded
+        if ($caminhoBanco) $this->produto->imagem = $caminhoBanco;
+
+        return $this->produto->update();
     }
 
     public function readOne($id) {
@@ -73,50 +103,13 @@ class ProdutoController {
         return $this->produto;
     }
 
-    public function update($id, $nome, $descricao, $preco, $categoria_id) {
-        $caminhoBanco = null; // Caminho a ser salvo no banco
-
-        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-            $pasta = __DIR__ . '/../uploads/';
-            if (!is_dir($pasta)) {
-                mkdir($pasta, 0777, true);
-            }
-
-            // Gera um nome único para evitar conflitos
-            $nomeArquivo = uniqid() . '-' . basename($_FILES['imagem']['name']);
-            $caminhoDestino = $pasta . $nomeArquivo;
-
-            // Move o arquivo enviado
-            if (move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoDestino)) {
-                $caminhoBanco = 'uploads/' . $nomeArquivo;
-            } else {
-                echo "Erro ao mover o arquivo de imagem.";
-                return false;
-            }
-        }
-        $this->produto->id = $id;
-        $this->produto->nome = $nome;
-        $this->produto->descricao = $descricao;
-        $this->produto->preco = $preco;
-        $this->produto->categoria_id = $categoria_id;
-        $this->produto->imagem = $caminhoBanco;
-        if($this->produto->update()) {
-            return true;
-        }
-        return false;
-    }
-
     public function delete($id) {
         $this->produto->id = $id;
-        if($this->produto->delete()) {
-            return true;
-        }
-        return false;
+        return $this->produto->delete();
     }
 
     public function getCategorias() {
-        $stmt = $this->categoria->read();
-        return $stmt;
+        return $this->categoria->read();
     }
 }
 ?>
