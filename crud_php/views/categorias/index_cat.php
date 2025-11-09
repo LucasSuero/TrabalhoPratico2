@@ -9,8 +9,8 @@ $num = $data['num'];
 include __DIR__ . '/../../views/includes/header.php';
 ?>
 
-<h2>Categorias</h2>
-
+<h2 class="textoAba">Categorias</h2>
+<div class="tabelas">
 <a href="/crud_php/public/index.php?page=categorias&action=create" class="button">Criar Nova Categoria</a>
 
 <?php
@@ -37,6 +37,7 @@ if($num > 0){
 } else {
     echo "<p>Nenhuma categoria encontrada.</p>";
 }
+echo "</div>"
 ?>
 
 <?php include __DIR__ . '/../../views/includes/footer.php'; ?>

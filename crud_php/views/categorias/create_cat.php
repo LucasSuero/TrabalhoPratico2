@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 include __DIR__ . '/../../views/includes/header.php';
 ?>
 
-<h2>Criar Categoria</h2>
+<h2 class="textoAba">Criar Categoria</h2>
 
 <form action="/crud_php/public/index.php?page=categorias&action=create" method="POST">
     <label for="nome">Nome da Categoria:</label>

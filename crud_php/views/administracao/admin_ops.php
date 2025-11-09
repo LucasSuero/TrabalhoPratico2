@@ -2,8 +2,8 @@
 
 
         <div class="mainDiv">
-        <a href="/crud_php/public/index.php?page=produtos">jogos</a>
-        <a href="/crud_php/public/index.php?page=categorias">Categorias</a>
+        <a href="/crud_php/public/index.php?page=produtos">JOGOS</a>
+        <a href="/crud_php/public/index.php?page=categorias">CATEGORIAS</a>
         </div>
 <!--A ideia principal dessa página já tá em prática, que é tirar essas funções mais 
 administrativas do foco, por que se trata de uma loja e tals, então agora só resta decorar

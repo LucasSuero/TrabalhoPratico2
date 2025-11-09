@@ -12,6 +12,7 @@ $controller = new ProdutoController();
 $produtosArray = $controller->index(); // retorna ['stmt' => ..., 'num' => ...]
 $produtos = $produtosArray['stmt']; // aqui pegamos o PDOStatement
 ?>
+
 <div class="produto">
     <?php while($produto = $produtos->fetch(PDO::FETCH_ASSOC)) : ?>
     

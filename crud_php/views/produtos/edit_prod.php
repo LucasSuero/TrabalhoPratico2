@@ -28,7 +28,7 @@ include __DIR__ .
 '/../../views/includes/header.php';
 ?>
 
-<h2>Editar Produto</h2>
+<h2  class="textoAba">Editar Produto</h2>
 
 <form action="/crud_php/public/index.php?page=produtos&action=edit&id=<?php echo $id; ?>" method="POST" enctype="multipart/form-data">
     <label for="nome">Nome do Produto:</label>

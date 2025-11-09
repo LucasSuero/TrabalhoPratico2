@@ -16,16 +16,19 @@
 </head>
 <body>
     <div class="container">  
-     <div class="headerBarraAlta">
-      <img src="css/Images/Logo/Logo_Loja.png" alt="Logo da Loja" width= 70px height= 70px>;
+        <div class="headerBarraAlta">
+            <div class="esquerda">
+                <img src="css/Images/Logo/Logo_Loja.png" alt="Logo da Loja" width= 70px height= 70px> 
+                <h1>Boy Games</h1>
+            </div>
 
-      <h1>Boy Games</h1>'
+            <div class="direita">
+            <nav>
+                <a href="index.php?page=loja">LOJA</a>
+
+                <a href="index.php?page=administracao">ADMINISTRAÇÃO</a>
+            </nav>
+            </div>
         </div>
-        <nav>
-            <a href="index.php?page=loja">LOJA</a>
-
-            <a class='direita' href="index.php?page=administracao">ADMINISTRAÇÃO</a>
-           
-        
-        </nav>
-        <hr>
+    </div>
+    

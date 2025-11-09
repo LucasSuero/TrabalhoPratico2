@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 include __DIR__ . '/../../views/includes/header.php';
 ?>
 
-<h2>Adicionar Jogo</h2>
+<h2 class="textoAba">Adicionar Jogo</h2>
 
 <form action="/crud_php/public/index.php?page=produtos&action=create" method="POST" enctype="multipart/form-data">
     <label for="nome">Nome do jogo:</label>
@@ -42,12 +42,16 @@ include __DIR__ . '/../../views/includes/header.php';
         }
         ?>
     </select>
-
+    
     <label for="imagem">Imagem de capa</label>
     <input type="file" id="imagem" name="imagem" accept="image/*" required>
 
+    <div class="botao">     <div class="direita">
     <button type="submit" class="button">Salvar</button>
     <a href="/crud_php/public/index.php?page=produtos" class="button">Cancelar</a>
+    </div>
+    </div>
+    </div>
 </form>
 
 <?php include __DIR__ . '/../../views/includes/footer.php'; ?>

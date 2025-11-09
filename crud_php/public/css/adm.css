@@ -5,16 +5,17 @@ Vermelho Radical: #fa3460
 */
 
 .mainDiv {
-    margin-top: 0;
-    display: block;
-    text-align:center;
-    
-    
+   width: 85%;
+    margin: 30px auto;
+    background-color: rgba(18, 18, 18, 0.7);;
+    padding: 20px;
+    box-shadow:0 0 25px rgba(0, 123, 255, 0.15);
+    border-radius: 40px;
+    text-align: center
 }
 .mainDiv a{
     text-decoration: none;
     color: #0096fd;
-    background-color: #161516 ;
     padding: 20px;
 
 }

@@ -9,8 +9,8 @@ $num = $data['num'];
 include __DIR__ . '/../../views/includes/header.php';
 ?>
 
-<h2>Produtos</h2>
-
+<h2 class="textoAba">Produtos</h2>
+<div class="tabelas">
 <a href="/crud_php/public/index.php?page=produtos&action=create" class="button">Criar Novo Produto</a>
 
 <?php
@@ -43,6 +43,8 @@ if($num > 0){
 } else {
     echo "<p>Nenhum produto encontrado.</p>";
 }
+echo "</div>";
+    
 ?>
 
 <?php include __DIR__ . '/../../views/includes/footer.php'; ?>
