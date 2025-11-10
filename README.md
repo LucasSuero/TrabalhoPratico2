@@ -9,6 +9,7 @@
 - 25011023-2 - Lucas Coelho Suero 
 
 <h3>Objetivo:</h3>
+
 > Este trabalho tem como objetivo levar os alunos a exercitarem os conceitos fundamentais sobre o
 desenvolvimento na Linguagem PHP abordando os conceitos desenvolvimento de uma aplicação
 Web que se conectada a um banco de dados para a persistência de dados.
