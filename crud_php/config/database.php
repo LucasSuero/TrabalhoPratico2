@@ -8,8 +8,7 @@ Componentes:
  25185655-2 - Leonardo Kenji Tanida Soares
  25125961-2 - Elias Borgers Neckel
  25011023-2 - Lucas Coelho Suero 
-Data: 08 de Outubro de 2025
-Descritivo:FOR: Escreva um programa que use for para imprimir os números de 1 a 10.
+Data: 10 de novembro de 2025
 *******************************************************************************/
 
 /*Esse arquivo em php serve somente para conectar na data base, como eu estava enfrentando problemas
