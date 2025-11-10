@@ -1,4 +1,15 @@
-<?php include __DIR__ . '/../../views/includes/header.php';?>
+<?php include __DIR__ . '/../../views/includes/header.php';
+/******************************************************************************
+Curso: Engenharia de Software
+Disciplina: Linguagem e Técnicas de Programacão
+Professor: José Carlos Domingues Flôres
+Turma: ESOFT-2A
+Componentes:
+ 25185655-2 - Leonardo Kenji Tanida Soares
+ 25125961-2 - Elias Borgers Neckel
+ 25011023-2 - Lucas Coelho Suero 
+Data: 10 de novembro de 2025
+*******************************************************************************/?>
 
 <nav>
 
@@ -30,5 +41,6 @@ $produtos = $produtosArray['stmt']; // aqui pegamos o PDOStatement
     </div>
 <?php endwhile; ?>
 </div>
+
 
  <?php  include __DIR__ . '/../../views/includes/footer.php';?>
