@@ -1,4 +1,17 @@
 <?php
+/******************************************************************************
+Curso: Engenharia de Software
+Disciplina: Linguagem e Técnicas de Programacão
+Professor: José Carlos Domingues Flôres
+Turma: ESOFT-2A
+Componentes:
+ 25185655-2 - Leonardo Kenji Tanida Soares
+ 25125961-2 - Elias Borgers Neckel
+ 25011023-2 - Lucas Coelho Suero 
+Data: 08 de Outubro de 2025
+Descritivo:FOR: Escreva um programa que use for para imprimir os números de 1 a 10.
+*******************************************************************************/
+
 /*Esse arquivo em php serve somente para conectar na data base, como eu estava enfrentando problemas
 ao trocar de maquinas constantemente para mexer no trabalho, notei que eu sempre tinha que manualmente
 criar um banco de dados no phpmyadmin pra poder utilziar meu código, então eu entrei no chatgpt e 
