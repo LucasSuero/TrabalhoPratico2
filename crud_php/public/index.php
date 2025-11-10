@@ -1,4 +1,16 @@
 <?php
+/******************************************************************************
+Curso: Engenharia de Software
+Disciplina: Linguagem e Técnicas de Programacão
+Professor: José Carlos Domingues Flôres
+Turma: ESOFT-2A
+Componentes:
+ 25185655-2 - Leonardo Kenji Tanida Soares
+ 25125961-2 - Elias Borgers Neckel
+ 25011023-2 - Lucas Coelho Suero 
+Data: 10 de novembro de 2025
+*******************************************************************************/
+
 /* Pra melhor compreensão do código, é importante ressaltar que include é um comando que 
 puxa um outro arquivo pra determinado ponto do arquivo o qual foi usado o include, então no 
 script que temos em mãos. usamos o metodo $_GET pra identificar qual página estamos e então
