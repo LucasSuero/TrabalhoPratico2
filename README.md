@@ -24,6 +24,13 @@ A arquitetura é modular, com arquivos PHP separados para configuração, modelo
 com o banco de dados), controladores (lógica de negócios) e visões (interface do usuário), além
 de um arquivo CSS externo para estilização.
 
-## Tecnologias usadas
+## Tecnologias usadas:
 
+<ul>
+  <li>PHP</li>
+  <li>MYSQL</li>
+</ul>
 
+## Como usar?
+
+A aplica
